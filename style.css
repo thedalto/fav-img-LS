@@ -1,4 +1,4 @@
-@import url(htps://fonts.googleapis.com/css?family=Roboto,400,700,300);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700,300);
 
 :root{
     --black: #130f0d;
@@ -27,10 +27,11 @@ body{
 
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 main{
-    margin: auto;
+    margin-top: 3rem;
 
     width: 80vh;
 }
@@ -70,14 +71,14 @@ image{
     color: var(--primary);
 
     position: absolute;
-    top: 0;
-    left: 0.5rem;
+    left: 25rem;
 
     font-size: 3.2rem;
 }
 
 .image.fav:hover:after{
     content:' \2606';
+    
 }
 
 img{
