@@ -33,7 +33,7 @@ body{
 main{
     margin-top: 3rem;
 
-    width: 80vh;
+    width: 70vw;
 }
 
 button {
@@ -60,18 +60,18 @@ button:hover{
     background: var(--primary-dark);
 }
 
-image{
+.image{
     height: 80vh;
     position: relative;
 }
 
 .image:hover:after,
-.image.fav:after{
+.image.fav:after {
     content: ' \2605';
     color: var(--primary);
 
     position: absolute;
-    left: 25rem;
+    left: 8px;
 
     font-size: 3.2rem;
 }

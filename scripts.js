@@ -1,36 +1,61 @@
+//VARIABLES
 let favorites = JSON.parse(localStorage.getItem('favorites')) || []
-    
-    // Pegar image externa
-async function getExternalImage() {
-    const response = await fetch 
-    ('https://source.unsplash.com/random')
+const imageContainer =  document.querySelector('.image')
+const button  = document.querySelector('button')
 
-    document.querySelector('.image')
-    .innerHTML = `<img src ="${response.url}" >`
-}
-getExternalImage()
-    // clicar no botão, pegar imagem externa
-document.querySelector('button').onclick = function() {
-    getExternalImage()
-}
-    // clicar na imagem
-document.querySelector('.image').onclick = function() {
-    const imageContainer =  document.querySelector('.image')
-    
+// events
+button.onclick = () => uptadeImage()
+imageContainer.onclick = () => updateAll()
+   
+// METHODOS
+function getState(){
     const imageSource =  document.querySelector('.image img').src
-
-
-    //se está no local Storage, remover
+    
     const index =  favorites.indexOf(imageSource)
     const existsLocalStorage = index != -1
-    if (existsLocalStorage){
-        favorites.splice(index, 1)
-        imageContainer.classList.remove('fav')
-    } else {
-        favorites.push(imageSource)
-        imageContainer.classList.add('fav')
-    }
+
+    return { imageSource, index, existsLocalStorage }
+}
+
+function updateAll() {
+    uptadeFavorites()
+    updateClasses()
+}
+
+function uptadeFavorites() {
+    const { existsLocalStorage, index, imageSource } = getState()
+
+    existsLocalStorage 
+    ?  favorites.splice(index, 1) 
+    : favorites.push(imageSource) 
 
     localStorage.setItem('favorites', JSON.stringify(favorites))
+}
+
+function updateClasses() {
+    const {existsLocalStorage} = getState()
+
+    imageContainer.classList.remove('fav')
+
+    if (existsLocalStorage){
+       imageContainer.classList.add('fav')
+    }
 
 }
+    
+async function uptadeImage() {
+    await getExternalImage()
+    updateClasses()
+    
+}
+    async function getExternalImage() {
+        const response = await fetch 
+        ('https://source.unsplash.com/random')
+    
+        imageContainer
+        .innerHTML = `<img src ="${response.url}" >`
+    }
+    getExternalImage()
+
+  
+    
