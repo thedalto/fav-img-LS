@@ -33,7 +33,7 @@ body{
 main{
     margin-top: 3rem;
 
-    width: 70vw;
+    width: 80vw;
 }
 
 button {
@@ -90,12 +90,9 @@ img{
 
 @media only screen and (max-width: 413px){
 
-    main{
-        width: 60vw;
-    }
-
-    image{
-        height: 70vh;
+    .image{
+        height: 60vh;
+        
     }
 
     
