@@ -2,6 +2,8 @@
 let favorites = JSON.parse(localStorage.getItem('favorites')) || []
 const imageContainer =  document.querySelector('.image')
 const button  = document.querySelector('button')
+//const spinnerLoading = document.querySelector('.loading')
+//const countdownContainer = document.querySelector('.countdown')
 
 // events
 button.onclick = () => uptadeImage()
@@ -48,6 +50,8 @@ async function uptadeImage() {
     updateClasses()
     
 }
+
+
     async function getExternalImage() {
         const response = await fetch 
         ('https://source.unsplash.com/random')

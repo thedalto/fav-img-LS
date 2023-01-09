@@ -33,7 +33,7 @@ body{
 main{
     margin-top: 3rem;
 
-    width: 80vw;
+    width: 75vw;
 }
 
 button {
@@ -53,7 +53,7 @@ button {
 
     position: relative;
 
-    transition: 0.2s;
+    transition: all 0.2s;
 }
 
 button:hover{
@@ -92,8 +92,7 @@ img{
 
     .image{
         height: 60vh;
-        
-    }
 
-    
+    }
+ 
 }
